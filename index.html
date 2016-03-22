@@ -2,28 +2,75 @@
 <html>
   <head>
     <title> Vis </title>
+    <link rel = "stylesheet" href = "style.css" type = "text/css">
     <style type="text/css">
       html, body { height: 100%; margin: 0; padding: 0; }
       #map { height: 100%; }
     </style>
   </head>
-  <body>
+  <body bgcolor = "#e6e6e6">
+    <div id = "sidebar">
+        <div class = "sidebar-item">
+          <p class = "title"> Data Title </p>
+          <p class = "text"> Data description </p>
+        </div>
+        <div class = "sidebar-item">
+          <p class = "title"> Data Title </p>
+          <p class = "text"> Data description </p>
+        </div>
+        <div class = "sidebar-item">
+          <p class = "title"> Data Title </p>
+          <p class = "text"> Data description </p>
+        </div>
+        <div class = "sidebar-item">
+          <p class = "title"> Data Title </p>
+          <p class = "text"> Data description </p>
+        </div>
+        <div class = "sidebar-item">
+          <p class = "title"> Data Title </p>
+          <p class = "text"> Data description </p>
+        </div>
+        <div class = "sidebar-item">
+          <p class = "title"> Data Title </p>
+          <p class = "text"> Data description </p>
+        </div>
+        <div class = "sidebar-item">
+          <p class = "title"> Data Title </p>
+          <p class = "text"> Data description </p>
+        </div>
+        <div class = "sidebar-item">
+          <p class = "title"> Data Title </p>
+          <p class = "text"> Data description </p>
+        </div>
+    </div>
     <div id="map"></div>
     <script type="text/javascript">
-
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat:	42.364506, lng:	-71.038887},
-    zoom: 8
-  });
-  var marker = new google.maps.Marker({
-  position: {lat:	42.364506, lng:	-71.038887},
-  map: map,
-  title: 'Hello World!'
-  });
-}
-
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat:	42.364506, lng:	-71.038887},
+          zoom: 8
+        });
+        title: 'Hello World!'
+        // add all markers
+        addMarker(42.364506, -71.038887, "Hello - Test a long string that will exceed max width and hopefully wrap below.", map);
+        addMarker(41.864506, -71.038887, "World!", map);
+      };
+      // Add the marker at the x, y location. When clicked, display the description above with maxWidth.
+      function addMarker(x, y, content, map) {
+        var infowindow = new google.maps.InfoWindow({
+          content: content,
+          maxWidth: 400
+        });
+        var marker = new google.maps.Marker({
+          position: {lat: x, lng: y},
+          animation: google.maps.Animation.DROP,
+          map: map
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
     </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVbBLoaOO-qCEt1fuexen4ouXrUeI-eJE&callback=initMap">
