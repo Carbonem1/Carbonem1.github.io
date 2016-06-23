@@ -15,7 +15,7 @@
       <div id = "section">
         <center>
         <div class = "sectionItem">
-          <form action="index.php">
+          <form action="index.html">
           <p class = "sectionHeader"> Player Compare </p>
           <div class="input-list style-1 clearfix">
             <input id = "player1" name = "player1" type="text" placeholder="Player 1">
